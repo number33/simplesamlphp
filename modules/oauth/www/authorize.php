@@ -81,7 +81,12 @@ try {
 	header('Content-type: text/plain; utf-8', TRUE, 500);
 	header('OAuth-Error: ' . $e->getMessage());
 
-	print_r($e);
+	if (ini_get('display_errors')) {
+		print_r($e);
+	}
+
+	error_log('OAuth-Error: ' . $e->getMessage());
+	error_log('OAuth-Error: ' . print_r($e));
 	
 }
 
