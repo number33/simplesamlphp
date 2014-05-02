@@ -17,6 +17,10 @@ if (file_exists(dirname(dirname(__FILE__)) . '/vendor/autoload.php')) {
 else if (file_exists(dirname(dirname(__FILE__)) . '/../../autoload.php')) {
 	require_once dirname(dirname(__FILE__)) . '/../../autoload.php';
 }
+// Use custom autoloader.
+else if (file_exists(dirname(dirname(__FILE__)) . '/autoload/loader.php')) {
+	require_once dirname(dirname(__FILE__)) . '/autoload/loader.php';
+}
 else {
 	throw new Exception('Unable to load Composer autoloader');
 }
